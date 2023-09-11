@@ -1,3 +1,6 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 export const formatPrice = (amount: number) => {
 	const options = {
 		style: "currency",
@@ -11,3 +14,5 @@ export const formatPrice = (amount: number) => {
 
 	return formatter.format(amount / 100);
 };
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));

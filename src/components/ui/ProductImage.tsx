@@ -1,6 +1,6 @@
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 
-type ProductImageProps = { src: StaticImageData; alt: string };
+type ProductImageProps = { src: string; alt: string };
 
 export const ProductImage = ({ src, alt }: ProductImageProps) => {
 	return (

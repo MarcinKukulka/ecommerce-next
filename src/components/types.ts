@@ -1,9 +1,25 @@
-import { type StaticImageData } from "next/image";
-
 export type ProductItemType = {
 	id: string;
 	name: string;
 	category: string;
 	price: number;
-	image: { alt: string; src: StaticImageData };
+	description: string;
+	image: {
+		alt: string;
+		src: string;
+	};
+};
+
+export type ProductFromResponse = {
+	id: string;
+	title: string;
+	price: number;
+	description: string;
+	category: string;
+	image: string;
+	longDescription: string;
+	rating: {
+		rate: number;
+		count: number;
+	};
 };
