@@ -1,10 +1,10 @@
-import { getProductsList, getPaginatedProducts } from "@/api/products";
+import { getPaginatedProducts, getProductsList } from "@/api/products";
 import { ProductList } from "@/components/ProductList";
 
 export async function generateStaticParams() {
 	const products = await getProductsList();
-	const numOfPages = Math.ceil(products.length / 20);
-	const pages = Array.from({ length: numOfPages }, (_, i) => i + 1);
+	const pageNumber = Math.ceil(products.length / 20);
+	const pages = Array.from({ length: pageNumber }, (_, i) => i + 1);
 	return pages.map((page) => ({ params: { page: page.toString() } }));
 }
 

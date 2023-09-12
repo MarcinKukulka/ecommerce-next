@@ -20,15 +20,19 @@ export async function generateMetadata({
 export default async function SingleProductPage({ params }: { params: { productId: string } }) {
 	const product = await getProductById(params.productId);
 	return (
-		<div className="mx-auto flex max-w-xl flex-col gap-y-6">
-			<h1 className="self-center text-3xl">{product.name}</h1>
-			<ProductImage {...product.image} />
-			<ProductDescription
-				product={{
-					...product,
-				}}
-			/>
-			<p>{product.description}</p>
+		<div className="mx-auto flex max-w-2xl flex-col gap-y-6">
+			<div className="flex flex-col md:flex-row md:justify-between ">
+				<ProductImage {...product.image} />
+				<div className="basis-1/2 ml-6 flex flex-col gap-y-4">
+					<h1 className="self-center text-3xl">{product.name}</h1>
+					<ProductDescription
+						product={{
+							...product,
+						}}
+					/>
+					<p>{product.description}</p>
+				</div>
+			</div>
 			<Link
 				className="mt-10 self-center rounded-lg bg-slate-800 p-4 text-white hover:bg-slate-700"
 				href="/products"

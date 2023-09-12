@@ -5,7 +5,6 @@ export default async function ProductsPageLayout({ children }: { children: React
 	const products = await getProductsList();
 	const pageNumber = Number(Math.ceil(products.length / 20));
 
-	console.log(pageNumber);
 	return (
 		<>
 			{children}
