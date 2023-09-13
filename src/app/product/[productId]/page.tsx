@@ -14,6 +14,11 @@ export async function generateMetadata({
 	return {
 		title: product.name,
 		description: product.description,
+		openGraph: {
+			title: product.name,
+			description: product.description,
+			images: [product.image.src],
+		},
 	};
 }
 
@@ -23,7 +28,7 @@ export default async function SingleProductPage({ params }: { params: { productI
 		<div className="mx-auto flex max-w-2xl flex-col gap-y-6">
 			<div className="flex flex-col md:flex-row md:justify-between ">
 				<ProductImage {...product.image} />
-				<div className="basis-1/2 ml-6 flex flex-col gap-y-4">
+				<div className="ml-6 flex basis-1/2 flex-col gap-y-4">
 					<h1 className="self-center text-3xl">{product.name}</h1>
 					<ProductDescription
 						product={{
