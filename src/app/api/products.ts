@@ -41,11 +41,8 @@ export const getProductById = async (id: string) => {
 };
 
 export const getPaginatedProducts = async (pageNumber: number) => {
-	const res = await fetch(
-		`${API_URL}?take=20&offset=${20 * pageNumber}`,
-	);
+	const res = await fetch(`${API_URL}?take=40&offset=${20 * pageNumber}`);
 	const productsResponse = (await res.json()) as ProductFromResponse[];
-	console.log(productsResponse.length);
 	const products = productsResponse.map((product): ProductItemType => {
 		return {
 			id: product.id,

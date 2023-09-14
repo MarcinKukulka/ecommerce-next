@@ -3,7 +3,7 @@ import { Pagination } from "@/ui/Pagination";
 
 export default async function ProductsPageLayout({ children }: { children: React.ReactNode }) {
 	const products = await getProductsList();
-	const pageNumber = Number(Math.ceil(products.length / 20));
+	const pageNumber = Number(Math.ceil(products.length / 5));
 
 	return (
 		<>
