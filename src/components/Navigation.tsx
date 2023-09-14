@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ActiveLink } from "@/ui/ActiveLink";
 
 const routes = [
@@ -7,7 +8,8 @@ const routes = [
 
 export const Navigation = () => {
 	return (
-		<nav>
+		<nav className="flex items-center justify-between">
+			<Link href={"/"}>Logo</Link>
 			<ul className="flex items-center justify-center gap-x-6 p-6">
 				{routes.map(({ name, path }) => {
 					return (
@@ -19,6 +21,10 @@ export const Navigation = () => {
 					);
 				})}
 			</ul>
+			<div className="flex gap-x-4">
+				<Link href={"/"}>Logowanie</Link>
+				<Link href={"/"}>Rejestracja</Link>
+			</div>
 		</nav>
 	);
 };
