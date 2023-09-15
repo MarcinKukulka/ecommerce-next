@@ -21,6 +21,13 @@
 
 		"import/no-cycle": "error",
 		"import/no-default-export": "error",
+		"no-restricted-imports": [
+			"error",
+			{
+				"name": "next/router",
+				"message": "Please use next/navigation instead"
+			}
+		],
 
 		// allow {} even though it's unsafe but comes handy
 		"@typescript-eslint/ban-types": [
