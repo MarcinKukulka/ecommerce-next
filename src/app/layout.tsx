@@ -16,8 +16,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<div className="mx-auto max-w-md px-6 sm:max-w-2xl md:max-w-4xl lg:max-w-7xl ">
-					<Navigation />
+				<Navigation />
+				<div className="mx-auto mb-5 max-w-md px-6 pt-24 sm:max-w-2xl md:max-w-4xl lg:max-w-7xl">
 					{children}
 				</div>
 			</body>
