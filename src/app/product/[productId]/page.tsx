@@ -14,10 +14,22 @@ export async function generateMetadata({
 	return {
 		title: product.name,
 		description: product.description,
+		twitter: {
+			title: product.name,
+			description: product.description,
+			images: [{ url: product.image.src }],
+		},
 		openGraph: {
 			title: product.name,
 			description: product.description,
-			images: [product.image.src],
+			images: [
+				{
+					url: product.image.src,
+					width: 800,
+					height: 600,
+					alt: product.image.alt,
+				},
+			],
 		},
 	};
 }
@@ -25,7 +37,7 @@ export async function generateMetadata({
 export default async function SingleProductPage({ params }: { params: { productId: string } }) {
 	const product = await getProductById(params.productId);
 	return (
-		<div className="mx-auto flex max-w-2xl flex-col gap-y-6">
+		<div className="mx-auto mt-20   flex max-w-2xl flex-col gap-y-6">
 			<div className="flex flex-col md:flex-row md:justify-between ">
 				<ProductImage {...product.image} />
 				<div className="ml-6 flex basis-1/2 flex-col gap-y-4">
