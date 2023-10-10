@@ -17,11 +17,17 @@ export const ActiveLink = ({
 }: ActiveLinkProps) => {
 	const pathname = usePathname();
 
-	const matchPath = typeof href === "string" ? href : href.pathname;
+	const matchPath = (typeof href === "string" ? href : href.pathname) ?? null;
 	const isActive =
-		matchPath && pathname && (exact ? pathname === matchPath : pathname.startsWith(matchPath));
+		(matchPath && pathname && (exact ? pathname === matchPath : pathname.startsWith(matchPath))) ||
+		false;
 	return (
-		<Link className={isActive ? activeClassName : className} href={href}>
+		<Link
+			className={isActive ? activeClassName : className}
+			href={href}
+			role="link"
+			aria-current={isActive ? isActive : undefined}
+		>
 			{children}
 		</Link>
 	);

@@ -10,6 +10,18 @@ export type ProductItemType = {
 	};
 };
 
+export type Product = {
+	id: string;
+	name: string;
+	category: string;
+	price: number;
+	description: string;
+	image: {
+		alt: string;
+		src: string;
+	};
+};
+
 export type ProductFromResponse = {
 	id: string;
 	title: string;

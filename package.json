@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint --fix --dir src",
 		"prepare": "husky install",
-		"codegen": "graphql-codegen --config .graphqlrc.ts"
+		"codegen": "graphql-codegen --config .graphqlrc.ts --verbose"
 	},
 	"dependencies": {
 		"@mdx-js/loader": "^2.3.0",
