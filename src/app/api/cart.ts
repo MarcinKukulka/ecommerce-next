@@ -9,7 +9,7 @@ import {
 	CartAddProductDocument,
 	CartSetProductQuantityDocument,
 } from "@/gql/graphql";
-import { executeGraphql } from "@/utils";
+import { executeGraphql } from "@/api/products";
 
 export async function getCartFromCookies() {
 	const cartId = cookies().get("cartId")?.value;

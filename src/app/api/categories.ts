@@ -1,5 +1,5 @@
 import { CategoriesGetAllDocument, CategoryGetBySlugDocument } from "@/gql/graphql";
-import { executeGraphql } from "@/utils";
+import { executeGraphql } from "@/api/products";
 
 export const getCategoriesList = async () => {
 	const graphqlResponse = await executeGraphql({
