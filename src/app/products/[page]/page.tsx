@@ -1,4 +1,4 @@
-import { getPaginatedProducts, getProductsList } from "@/api/products";
+import { getProductsByPage, getProductsList } from "@/api/products";
 import { ProductList } from "@/components/ProductList";
 
 export async function generateStaticParams() {
@@ -9,7 +9,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ProductsPage({ params }: { params: { page: string } }) {
-	const products = await getPaginatedProducts(Number(params.page));
+	const products = await getProductsByPage(Number(params.page));
 
 	return <ProductList products={products} />;
 }

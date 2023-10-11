@@ -13,11 +13,11 @@
 // 		</ul>
 // 	);
 // };
-import { type ProductItemType } from "./types";
+import { type ProductFragment } from "@/gql/graphql";
 import { ProductListItem } from "@/components/ProductItem";
 
 type ProductListProps = {
-	products: ProductItemType[];
+	products: ProductFragment[];
 	numOfProducts?: number;
 };
 

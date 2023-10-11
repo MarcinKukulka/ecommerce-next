@@ -20,7 +20,7 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "naszsklep-api.vercel.app",
+				hostname: "media.graphassets.com",
 			},
 		],
 	},
