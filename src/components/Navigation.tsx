@@ -10,6 +10,7 @@ type RoutesProps = {
 const routes: RoutesProps[] = [
 	{ name: "Home", path: "/" },
 	{ name: "All", path: "/products" },
+	{ name: "Categories", path: "/categories" },
 ];
 
 export const Navigation = () => {

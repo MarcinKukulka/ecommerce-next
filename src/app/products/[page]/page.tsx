@@ -1,5 +1,6 @@
 import { getProductsByPage, getProductsList } from "@/api/products";
 import { ProductList } from "@/components/ProductList";
+import { Pagination } from "@/components/ui/Pagination";
 
 export async function generateStaticParams() {
 	const products = await getProductsList();
@@ -8,8 +9,13 @@ export async function generateStaticParams() {
 	return pages.map((page) => ({ params: { page: page.toString() } }));
 }
 
-export default async function ProductsPage({ params }: { params: { page: string } }) {
-	const products = await getProductsByPage(Number(params.page));
+export default async function ProductsPage({ params }: { params: { pageNumber: string } }) {
+	const products = await getProductsByPage(Number(params.pageNumber), "name_ASC");
 
-	return <ProductList products={products} />;
+	return (
+		<>
+			<ProductList products={products} />
+			<Pagination pageNumber={Number(params.pageNumber)} className="mt-8" />
+		</>
+	);
 }
