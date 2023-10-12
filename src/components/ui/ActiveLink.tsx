@@ -1,13 +1,17 @@
 "use client";
-import { type RouteType } from "next/dist/lib/load-custom-routes";
-import Link, { type LinkProps } from "next/link";
+
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type Route } from "next";
+import { type ReactNode } from "react";
+
 type ActiveLinkProps<T extends string> = {
 	exact?: boolean;
 	activeClassName?: string;
 	href: Route<T>;
-} & LinkProps<RouteType>;
+	className?: string;
+	children: ReactNode;
+};
 
 export const ActiveLink = <T extends string>({
 	children,

@@ -1,7 +1,13 @@
 import Link from "next/link";
+import { type Route } from "next";
 import { ActiveLink } from "@/ui/ActiveLink";
 
-const routes = [
+type RoutesProps = {
+	name: string;
+	path: Route;
+};
+
+const routes: RoutesProps[] = [
 	{ name: "Home", path: "/" },
 	{ name: "All", path: "/products" },
 ];
@@ -15,11 +21,7 @@ export const Navigation = () => {
 					{routes.map(({ name, path }) => {
 						return (
 							<li key={name}>
-								<ActiveLink
-									exact
-									activeClassName="border-b-2 border-black"
-									href={{ pathname: path }}
-								>
+								<ActiveLink exact activeClassName="border-b-2 border-black" href={path}>
 									{name}
 								</ActiveLink>
 							</li>
