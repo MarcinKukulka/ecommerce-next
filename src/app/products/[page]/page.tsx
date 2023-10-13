@@ -9,13 +9,12 @@ export async function generateStaticParams() {
 	return pages.map((page) => ({ params: { page: page.toString() } }));
 }
 
-export default async function ProductsPage({ params }: { params: { pageNumber: string } }) {
-	const products = await getProductsByPage(Number(params.pageNumber), "name_ASC");
-
+export default async function ProductsPage({ params }: { params: { page: string } }) {
+	const products = await getProductsByPage(+params.page);
 	return (
 		<>
 			<ProductList products={products} />
-			<Pagination pageNumber={Number(params.pageNumber)} className="mt-8" />
+			<Pagination pageNumber={+params.page} className="mt-8" />
 		</>
 	);
 }
