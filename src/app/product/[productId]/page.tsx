@@ -1,9 +1,12 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { getProduct } from "@/app/api/products";
 import { ProductImage } from "@/ui/ProductImage";
 import { ProductDescription } from "@/ui/ProductDescription";
+import { SuggestedProducts } from "@/components/SuggestedProducts";
+import { ProductVariantPicker } from "@/components/ProductVariant";
 
 export async function generateMetadata({
 	params,
@@ -54,6 +57,7 @@ export default async function SingleProductPage({ params }: { params: { productI
 						}}
 					/>
 					<p>{product.description}</p>
+					<ProductVariantPicker id={product.id} />
 				</div>
 			</div>
 			<Link
@@ -62,6 +66,9 @@ export default async function SingleProductPage({ params }: { params: { productI
 			>
 				Back to products
 			</Link>
+			<Suspense fallback={<div>Loading...</div>}>
+				<SuggestedProducts />
+			</Suspense>
 		</div>
 	);
 }

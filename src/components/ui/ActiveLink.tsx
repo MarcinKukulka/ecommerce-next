@@ -22,10 +22,6 @@ export const ActiveLink = <T extends string>({
 }: ActiveLinkProps<T>) => {
 	const pathname = usePathname();
 
-	// const matchPath = (typeof href === "string" ? href : href.pathname) ?? null;
-	// const isActive =
-	// 	(matchPath && pathname && (exact ? pathname === matchPath : pathname.startsWith(matchPath))) ||
-	// 	false;
 	const isActive = exact
 		? pathname === href
 		: pathname.startsWith(href) &&

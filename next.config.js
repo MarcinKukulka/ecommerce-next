@@ -18,7 +18,12 @@ const nextConfig = {
 				source: "/categories/:slug",
 				destination: "/categories/:slug/1",
 				permanent: true,
-			}
+			},
+			{
+				source: "/collections/:slug",
+				destination: "/collections/:slug/1",
+				permanent: true,
+			},
 		];
 	},
 	images: {
