@@ -6,6 +6,7 @@ const nextConfig = {
 		pageExtensions: ["ts", "tsx", "mdx"],
 		typedRoutes: true,
 		mdxRs: true,
+		serverActions: true,
 	},
 	redirects: async () => {
 		return [

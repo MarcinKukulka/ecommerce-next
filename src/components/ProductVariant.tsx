@@ -13,8 +13,6 @@ type ProductVariantPickerProps = {
 export async function ProductVariantPicker({ id }: ProductVariantPickerProps) {
 	const variants = await getColorSizeVariantsByProductId(id);
 
-	console.log(variants);
-
 	return (
 		<fieldset className="mt-4 grid grid-cols-2 gap-4">
 			<legend className="font-medium text-gray-900">Product Variant</legend>

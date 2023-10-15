@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { type Route } from "next";
 import Image from "next/image";
+import { ShoppingBasket } from "lucide-react";
 import logo from "../../public/logo.jpg";
 import { ActiveLink } from "@/ui/ActiveLink";
 import { Search } from "@/components/ui/Search";
+import { getCartFromCookies } from "@/api/cart";
 
 type RoutesProps = {
 	name: string;
@@ -20,7 +22,9 @@ const routes: RoutesProps[] = [
 	{ name: "Accessories", path: "/categories/accessories" as Route },
 ];
 
-export const Navigation = () => {
+export const Navigation = async () => {
+	const cart = await getCartFromCookies();
+	const quantity = cart?.orderItems.length || 0;
 	return (
 		<nav className="fixed left-0 z-10 w-full border-b border-slate-400 bg-slate-700 bg-opacity-30 text-start text-black backdrop-blur-xl backdrop-filter">
 			<div className="mx-auto flex max-w-6xl items-center justify-between">
@@ -51,6 +55,9 @@ export const Navigation = () => {
 					<Link href={"/"}>Sign in</Link>
 				</div>
 				<Search />
+				<ActiveLink href="/cart">
+					<ShoppingBasket /> ({quantity})
+				</ActiveLink>
 			</div>
 		</nav>
 	);

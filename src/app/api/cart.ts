@@ -74,10 +74,7 @@ export async function addToCart(orderId: string, productId: string) {
 		},
 	});
 
-	// check if product exists in cart
-
 	if (cart.order?.orderItems.some((item) => item.product?.id === productId)) {
-		// increment quantity
 		const item = cart.order.orderItems.find((item) => item.product?.id === productId);
 
 		if (!item) {
@@ -134,7 +131,6 @@ export async function handlePayment() {
 			return {
 				price_data: {
 					currency: "usd",
-					// doing this because hygraph is giving me types that can possibly be null (its not possible)
 					product_data: {
 						name: item.product?.name || "",
 					},

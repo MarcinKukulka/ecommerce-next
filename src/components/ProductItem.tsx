@@ -8,12 +8,18 @@ type ProductItemProps = {
 };
 
 export const ProductListItem = ({ product }: ProductItemProps) => {
+	const { categories, name, images, id, price, averageRating } = product;
 	return (
 		<li data-testid="products-list">
-			<Link href={`/product/${product.id}`}>
+			<Link href={`/product/${id}`}>
 				<article>
-					<ProductImage src={product.images[0]?.url} alt={product.name} />
-					<ProductDescription product={product} />
+					<ProductImage src={images[0]?.url} alt={name} />
+					<ProductDescription
+						name={name}
+						price={price}
+						category={categories[0]?.name}
+						rating={Number(averageRating)}
+					/>
 				</article>
 			</Link>
 		</li>

@@ -4,9 +4,9 @@ import { loadEnvConfig } from "@next/env";
 loadEnvConfig(process.cwd());
 
 const config: CodegenConfig = {
+	schema: process.env.GRAPHQL_URL,
 	overwrite: true,
 	ignoreNoDocuments: true,
-	schema: process.env.GRAPHQL_URL,
 	documents: "src/graphql/*.graphql",
 	generates: {
 		"src/gql/": {
